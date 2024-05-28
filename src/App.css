@@ -721,6 +721,11 @@ body{
   font-weight: 600;
 }
 
+community-div2{
+  width: 100%;
+  margin: auto;
+}
+
 @media only screen and (max-width: 600px) {
   .community-div .community-content h2{
     padding: 0rem 5rem;
@@ -790,7 +795,7 @@ body{
 .footer-content .icons{
   margin-top: 2rem;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border-radius: 50%;
 }
 .footer-content h5{

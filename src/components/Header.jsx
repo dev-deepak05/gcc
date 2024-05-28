@@ -92,7 +92,7 @@ export default function Header() {
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
               <li class="nav-item active">
                 <Link class="nav-link fw-bold font-monospace" to="/details">
-                  View Detail
+                  VIEW DETAILS
                 </Link>
               </li>
               <li class="nav-item">

@@ -6,6 +6,7 @@ function Community() {
       <div className="col-md-12 community-div text-white">
         <div className="container text-center community-second-div">
           <div className="col-md-12 bg-dark community-content">
+            <div className="community-div2">
               <div class="community-sub-title">
                 <h4 class="sub-title pt-4">Connect Wallet Now</h4>
               </div>
@@ -22,6 +23,7 @@ function Community() {
                     <span className="community-wallet-btn">
                     {tokenValue?'Connected':'Connect Wallet Now'}
                     </span>
+            </div>
             </div>
           </div>
         </div>

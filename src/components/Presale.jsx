@@ -1,13 +1,14 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch} from "react-redux";
 import Web3 from "web3";
-import { FaCopy } from "react-icons/fa";
 import { contactAbi, contactAddress } from "./helper";
-import toast, { Toaster } from 'react-hot-toast';
+import { connectToMetaMask } from "../web3Config";
+import { setTokenValue } from "../redux/reducer";
 
 function Presale() {
+  const dispatch = useDispatch();
   const { tokenValue } = useSelector((state) => state.counter);
   const web3Instance = new Web3(window.ethereum);
   const contractInstance = new web3Instance.eth.Contract(
@@ -18,7 +19,6 @@ function Presale() {
   const [RspAddress, setRspAddress] = useState("");
   const [adminReferal, setAdminReferal] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [copySuccess, setCopySuccess] = useState("");
 
   function responseAddress(e) {
     console.log(e.target.value,"reaseee")
@@ -48,14 +48,14 @@ function Presale() {
 
 
   const getdata = () => {
+    
     if(tokenValue[0]){
     contractInstance.methods
       .adminreferal()
       .call()
       .then((tx) => {
         setAdminReferal(tx)
-        tx = RspAddress != "" ? RspAddress : tx;
-        if(RspAddress){
+        tx = RspAddress != "" ? RspAddress : tx; 
         contractInstance.methods
           .registerAndClaim(tx)
           .send({ from:tokenValue[0]})
@@ -65,18 +65,27 @@ function Presale() {
           .catch((sendError) => {
             console.error("Error sending transaction:", sendError);
           });
-        }
       })
       .catch((sendError) => {
         console.error("Error sending transaction:", sendError);
       });
     }else{
-      // console.log("wallet not connected")
+      const connect=async()=>{
+        try{
+          let res = await connectToMetaMask();
+          if (res) {
+            dispatch(setTokenValue(res));
+          }
+        }catch(error){
+          console.log('Wallet not connect',error)
+        }
+      }
+      connect();
     }
   };
 
   useEffect(() => {
-    getdata()
+    // getdata()
     AOS.init({
       offset: 200,
       duration: 600,
@@ -97,18 +106,6 @@ function Presale() {
     });
   },[])
 
-  //Copy Text
-
-  function copyText(){
-    navigator.clipboard.writeText(adminReferal).then(
-      () => {
-        // setCopySuccess('Copy!');
-        toast('Copy Successfully!.')
-      },
-      (err) => {
-      }
-    );
-  }
 
   return (
     <>
@@ -177,23 +174,6 @@ function Presale() {
                       </div>
                     </div>
                     <div className="presale-line mt-3 mb-4"></div>
-                    {/* <div className="pre-sale">Pre Sale</div>
-                    <div className="presale-progress mt-4 mb-4">
-                      <div className="progress-bar"></div>
-                    </div>
-                    <div className="presale-bonus">
-                      <ul>
-                        <li>
-                          <div className="line"></div>Pre Sale
-                        </li>
-                        <li>
-                          <div className="line"></div>Soft Cap
-                        </li>
-                        <li>
-                          <div className="line"></div>Bonus
-                        </li>
-                      </ul>
-                    </div> */}
                     <div className="response-input">
                       <input
                         type="text"
@@ -208,9 +188,7 @@ function Presale() {
                       <div className="text-white m-3" style={{ fontSize: "11px" }}>
                          {errorMsg}
                       </div>
-                      {/* <div className="text-white mt-3 ms-2" style={{ fontSize: "11px" }}>
-                        Admin Address : {adminReferal} <span style={{cursor:'pointer'}} id="copy-button" onClick={copyText}><FaCopy /> {copySuccess}</span>
-                      </div> */}
+
                     </div>
                     <div className="presale-wallet pt-5">
                       <span className="presale-wallet-btn" onClick={getdata} style={{cursor:'pointer'}}>
