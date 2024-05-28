@@ -1,6 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { Element } from 'react-scroll';
 function Roadmap() {
 
     useEffect(() => {
@@ -14,7 +15,7 @@ function Roadmap() {
 
   return (
     <>
-      <div className="roadmap-div" style={{ backgroundColor: "#FAFCFE" }}>
+      <div className="roadmap-div" style={{ backgroundColor: "#FAFCFE" }} id='road-map'>
         <div className="container">
           <div className="col-md-12">
             <div className="roadmap-title text-center">

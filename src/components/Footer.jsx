@@ -5,7 +5,7 @@ import { BsTwitterX } from "react-icons/bs";
 function Footer() {
   return (
     <>
-      <div className="footer-div">
+      <div className="footer-div" id="footer-section">
         <div className="container">
           <div className="row footer-content">
             <div className="col-md-4 text-center">

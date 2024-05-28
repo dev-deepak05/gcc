@@ -11,13 +11,13 @@ function Community() {
               </div>
 
               <h2 class="title text-white">Be a <span class="word">Part</span> Of Global Crypto Community</h2>
-
-              <p class="desc mt-4">
+              <div className="desc">
+              <p class="mt-4">
                 Chat with Chatsonic that is GPT-4 powered from the comfort of
                 your couch or while traveling. Let Chatsonic be your personal
                 assistant!
               </p>
-
+              </div>
               <div className="community-wallet mb-4 mt-5">
                     <span className="community-wallet-btn">
                     {tokenValue?'Connected':'Connect Wallet Now'}

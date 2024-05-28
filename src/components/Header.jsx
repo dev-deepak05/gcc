@@ -96,7 +96,7 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#">
+                <a class="nav-link fw-bold font-monospace" href="#road-map" >
                   ROADMAP
                 </a>
               </li>
@@ -111,7 +111,7 @@ export default function Header() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#">
+                <a class="nav-link fw-bold font-monospace" href="#footer-section">
                   CONTACT
                 </a>
               </li>
@@ -120,16 +120,7 @@ export default function Header() {
               <div className="wallet" onClick={() => connect()}>
                 { token ? token : "Connect Wallet Now"}
               </div>
-              <div className="select-section">
-                <select
-                  class="form-select ms-4 "
-                  aria-label="small select example"
-                >
-                  <option selected>EN</option>
-                  <option value="1">FR</option>
-                  <option value="2">DE</option>
-                </select>
-              </div>
+
             </div>
           </div>
         </div>

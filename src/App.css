@@ -711,10 +711,12 @@ body{
   font-weight: 700;
 }
 .community-div .community-content h2{
-  padding: 0rem 15rem;
+  width: 75%;
+  margin: auto;
 }
 .community-div .community-content .desc{
-  padding: 0rem 20rem;
+  width: 70%;
+  margin: auto;
   line-height: 2rem;
   font-weight: 600;
 }
