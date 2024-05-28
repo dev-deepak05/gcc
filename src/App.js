@@ -12,7 +12,7 @@ import Roadmap from "./components/Roadmap";
 import Community from "./components/Community";
 import Questions from "./components/Questions";
 import Footer from "./components/Footer";
-
+// comment
 function App() {
   return (
     <>
