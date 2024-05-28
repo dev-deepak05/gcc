@@ -8,10 +8,10 @@ function Footer() {
       <div className="footer-div" id="footer-section">
         <div className="container">
           <div className="row footer-content">
-            <div className="col-md-3 text-center">
+            <div className="col-md-12 col-lg-3 text-center">
               <img src="images/gcc-logo2.png" alt="" height={100} width={250}/>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-12 col-lg-6">
               <h4 className="text-white text-center">Don't miss out, Stay updated</h4>
               <div className="form-div mt-3 text-center">
                 <form action="#">
@@ -20,7 +20,7 @@ function Footer() {
                 </form>
               </div>
             </div>
-            <div className="col-md-4 text-center">
+            <div className="col-md-12 col-lg-3 text-center">
               <div className="icons">
                 <span><FaFacebook /></span>
                 <span><FaTwitter /></span>

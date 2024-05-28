@@ -114,7 +114,7 @@ function Presale() {
           <div className="container">
             <div className="from_top">
               <div className="row presale-only-div">
-                <div className="col-md-8">
+                <div className="col-md-12 col-lg-8">
                   <div className="presale-text-div">
                     <div className="only-text text-center">
                       <div>
@@ -147,7 +147,7 @@ function Presale() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4 presale-live">
+                <div className="col-md-12 col-lg-4 presale-live">
                   <div
                     className="presale-div"
                     style={{ backgroundColor: "#00111E" }}

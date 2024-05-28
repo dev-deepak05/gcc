@@ -24,7 +24,7 @@ function Piechart() {
       </div>
       <div className="container piechart-status">
         <div className="row">
-        <div className="col-md-4 chat-left-status">
+        <div className="col-md-12 col-lg-4 chat-left-status">
             <div className="advisory">
                 <h6>Advisory board : 25%</h6>
                 <div className="progress">
@@ -44,12 +44,12 @@ function Piechart() {
             </div>
             </div>
         </div>
-        <div className="col-md-4 mt-5">
-            <div className="caht-div ms-5">
+        <div className="col-md-12 col-lg-4 mt-5">
+            <div className="caht-div ms-5 text-center">
             <PiechartStatus/>
             </div>
         </div>
-        <div className="col-md-4 chat-right-status">
+        <div className="col-md-12 col-lg-4 chat-right-status">
         <div className="advisory">
                 <h6 className="float-right">Reserve: 10%</h6>
                 <div className="progress">
