@@ -36,7 +36,7 @@ function Roadmap() {
                 <div class="timeline-row timeline-row-odd">
                   <div class="timeline-item timeline-done">
                     <div class="timeline-date">
-                      <h2 class="date">January 2021</h2>
+                      <h2 class="date">January 2024</h2>
                     </div>
                     <div class="timeline-icon">
                       <div class="icon">
@@ -58,7 +58,7 @@ function Roadmap() {
                   </div>
                   <div class="timeline-item timeline-done">
                     <div class="timeline-date">
-                      <h2 class="date">March 2021</h2>
+                      <h2 class="date">March 2024</h2>
                     </div>
                     <div class="timeline-icon">
                       <div class="icon">
@@ -79,7 +79,7 @@ function Roadmap() {
                   </div>
                   <div class="timeline-item timeline-done">
                     <div class="timeline-date">
-                      <h2 class="date">May 2021</h2>
+                      <h2 class="date">May 2024</h2>
                     </div>
                     <div class="timeline-icon">
                       <div class="icon">
@@ -102,7 +102,7 @@ function Roadmap() {
                 <div class="timeline-row timeline-row-even">
                   <div class="timeline-item">
                     <div class="timeline-date">
-                      <h2 class="date">September 2021</h2>
+                      <h2 class="date">September 2024</h2>
                     </div>
                     <div class="timeline-icon">
                       <div class="icon">
@@ -123,7 +123,7 @@ function Roadmap() {
                   </div>
                   <div class="timeline-item timeline-done-even">
                     <div class="timeline-date">
-                      <h2 class="date">July 2021</h2>
+                      <h2 class="date">July 2024</h2>
                     </div>
                     <div class="timeline-icon">
                       <div class="icon">
@@ -154,7 +154,7 @@ function Roadmap() {
                 </div>
                 <div class="timeline-info">
                   <div class="timeline-date">
-                    <h2 class="date">January 2021</h2>
+                    <h2 class="date">January 2024</h2>
                   </div>
                   <div class="timeline-content">
                     <h2 class="title">Concept</h2>
@@ -173,7 +173,7 @@ function Roadmap() {
                 </div>
                 <div class="timeline-info">
                   <div class="timeline-date">
-                    <h2 class="date">March 2021</h2>
+                    <h2 class="date">March 2024</h2>
                   </div>
                   <div class="timeline-content">
                     <h2 class="title">Research</h2>
@@ -192,7 +192,7 @@ function Roadmap() {
                 </div>
                 <div class="timeline-info">
                   <div class="timeline-date">
-                    <h2 class="date">May 2021</h2>
+                    <h2 class="date">May 2024</h2>
                   </div>
                   <div class="timeline-content">
                     <h2 class="title">Pre-Sale</h2>
@@ -211,7 +211,7 @@ function Roadmap() {
                 </div>
                 <div class="timeline-info">
                   <div class="timeline-date">
-                    <h2 class="date">July 2021</h2>
+                    <h2 class="date">July 2024</h2>
                   </div>
                   <div class="timeline-content">
                     <h2 class="title">App beta test</h2>
@@ -230,7 +230,7 @@ function Roadmap() {
                 </div>
                 <div class="timeline-info">
                   <div class="timeline-date">
-                    <h2 class="date">September 2021</h2>
+                    <h2 class="date">September 2024</h2>
                   </div>
                   <div class="timeline-content">
                     <h2 class="title">Token sale</h2>

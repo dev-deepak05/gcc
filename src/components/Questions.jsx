@@ -20,7 +20,7 @@ function Questions() {
                       aria-expanded="false"
                       aria-controls="flush-collapseOne"
                     >
-                      What is ChatGPT?
+                      What is GCC and how does it benefit me?
                     </button>
                   </h2>
                   <div
@@ -30,7 +30,7 @@ function Questions() {
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    GCC, or Global Crypto Community, is a secure online platform where crypto enthusiasts can connect using their digital wallets like MetaMask or Trust Wallet. As a member, you gain access to a variety of benefits, including participation in airdrops (free crypto giveaways), ICOs (Initial Coin Offerings), staking programs, and cutting-edge DeFi solutions.
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@ function Questions() {
                       aria-expanded="false"
                       aria-controls="flush-collapseTwo"
                     >
-                      What is ChatGPT used for?
+                     How does GCC prioritize security and privacy?
                     </button>
                   </h2>
                   <div
@@ -54,7 +54,7 @@ function Questions() {
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    GCC ensures security and privacy by  connections through digital wallet IDs. This method safeguards anonymity and data protection, allowing members to engage with peace of mind. Transactions and interactions within the community are securely handled, ensuring your identity remains private.
                     </div>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ function Questions() {
                       aria-expanded="false"
                       aria-controls="flush-collapseThree"
                     >
-                     How is Chatsonic different from ChatGPT by Open AI?
+                      How is the GCC token distributed?
                     </button>
                   </h2>
                   <div
@@ -78,7 +78,7 @@ function Questions() {
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    This distribution strategy ensures a balanced and fair allocation, supporting the community's growth and development.
                     </div>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ function Questions() {
                       aria-expanded="false"
                       aria-controls="flush-collapseFour"
                     >
-                     Does Chatsonic help with giving out the latest trends and news?
+                     What is the role of the GCC token in the community?
                     </button>
                   </h2>
                   <div
@@ -102,7 +102,7 @@ function Questions() {
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    The GCC token plays a pivotal role in the community by enabling holders to vote on important decisions and participate in exclusive airdrops. It also serves as a reward mechanism for members who actively engage in the community, complete tasks, and contribute to discussions. This token-powered ecosystem ensures that participation and engagement are rewarded, fostering a thriving community.
                     </div>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ function Questions() {
                       aria-expanded="false"
                       aria-controls="flush-collapseFive"
                     >
-                     Is Chatsonic free to use?
+                      What are airdrops and how can I benefit from them?
                     </button>
                   </h2>
                   <div
@@ -126,11 +126,11 @@ function Questions() {
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    Airdrops are essentially free crypto giveaways distributed to GCC token holders as rewards for their participation and engagement in the community. By holding GCC tokens, you can receive these airdrops, which are additional tokens added to your wallet. This provides an excellent opportunity to increase your crypto holdings without additional investment.
                     </div>
                   </div>
                 </div>
-                <div class="accordion-item border border-2 rounded-2 mb-2 p-2">
+                {/* <div class="accordion-item border border-2 rounded-2 mb-2 p-2">
                   <h2 class="accordion-header" id="flush-headingSix">
                     <button
                       class="accordion-button collapsed fw-bold fs-6"
@@ -153,7 +153,7 @@ function Questions() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

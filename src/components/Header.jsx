@@ -102,7 +102,7 @@ export default function Header() {
               </li>
               <li class="nav-item">
                 <a class="nav-link fw-bold font-monospace" href="#">
-                  ICO
+                  ICO 
                 </a>
               </li>
               <li class="nav-item">
@@ -117,7 +117,7 @@ export default function Header() {
               </li>
             </ul>
             <div class="d-flex">
-              <div className="wallet" onClick={() => connect()}>
+              <div className="wallet" onClick={() => connect()} style={{cursor:"pointer"}}>
                 { token ? token : "Connect Wallet Now"}
               </div>
 
