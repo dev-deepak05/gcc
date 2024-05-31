@@ -1,10 +1,24 @@
-export const contactAddress = "0x68A837633b981D31070725E6d754e0B8667927bF";
+export const contactAddress = "0xcd0521f3DD01c0592549107aEEb8D49F5c306A5C"; // testnet
 
 export const contactAbi = [
   {
     inputs: [{ internalType: "address", name: "_owner", type: "address" }],
     stateMutability: "nonpayable",
     type: "constructor",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "user", type: "address" },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "AirdropClaimed",
+    type: "event",
   },
   {
     anonymous: false,
@@ -30,6 +44,32 @@ export const contactAbi = [
       },
     ],
     name: "Unpaused",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "user", type: "address" },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "userId",
+        type: "uint256",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "sponsor",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "sponsorId",
+        type: "uint256",
+      },
+    ],
+    name: "UserRegistered",
     type: "event",
   },
   {
