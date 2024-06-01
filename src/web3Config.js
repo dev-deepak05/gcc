@@ -15,7 +15,7 @@ export async function connectToMetaMask() {
                 chainName: "Binance smartBNB Smart Chain",
                 rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
                 nativeCurrency: {
-                  name: "Binance ",
+                  name: "Binance",
                   symbol: "BNB",
                   decimals: 18,
                 },

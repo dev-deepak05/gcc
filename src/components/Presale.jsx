@@ -21,7 +21,7 @@ function Presale() {
   const [errorMsg, setErrorMsg] = useState("");
 
   function responseAddress(e) {
-    console.log(e.target.value,"reaseee")
+    // console.log(e.target.value,"reaseee")
     setRspAddress(e.target.value);
     try{
     contractInstance.methods

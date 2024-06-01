@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const dispatch = useDispatch();
   const { tokenValue } = useSelector((state) => state.counter);
-  
+
   //  Get Address Token
 
   const connect = async () => {
@@ -40,23 +40,25 @@ export default function Header() {
   }, []);
 
   //wallet token
-    useEffect(()=>{
-      const loadAccounts = async () => {
-        if (window.ethereum) {
-          try {
-            const web3 = new Web3(window.ethereum);
-            const accounts = await web3.eth.getAccounts();
-            accounts[0]!=undefined?dispatch(setTokenValue(accounts)):dispatch(setTokenValue(''))
-          } catch (error) {
-            console.error('User denied account access');
-          }
-        }}
-        loadAccounts()
-    },[])
-  // const [tokenValue,setTokenValue]=useState(false);
+  useEffect(() => {
+    const loadAccounts = async () => {
+      if (window.ethereum) {
+        try {
+          const web3 = new Web3(window.ethereum);
+          const accounts = await web3.eth.getAccounts();
+          accounts[0] != undefined
+            ? dispatch(setTokenValue(accounts))
+            : dispatch(setTokenValue(""));
+        } catch (error) {
+          console.error("User denied account access");
+        }
+      }
+    };
+    loadAccounts();
+  }, []);
 
   let token = false;
-  if (tokenValue[0] !=undefined) {
+  if (tokenValue[0] != undefined) {
     token = tokenValue[0]?.slice(0, 5) + "...." + tokenValue[0]?.slice(-4);
   }
 
@@ -70,12 +72,12 @@ export default function Header() {
         }
       >
         <div class="container">
-          <Link to='/'>
-          <img
-            src="images/gcc-logo.png"
-            alt=""
-            style={{ width: "180px", height: "auto" }}
-          />
+          <Link to="/">
+            <img
+              src="images/gcc-logo.png"
+              alt=""
+              style={{ width: "180px", height: "auto" }}
+            />
           </Link>
           <button
             class="navbar-toggler"
@@ -96,11 +98,11 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#road-map" >
+                <a class="nav-link fw-bold font-monospace" href="#road-map">
                   ROADMAP
                 </a>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link fw-bold font-monospace" href="#">
                   ICO 
                 </a>
@@ -109,18 +111,24 @@ export default function Header() {
                 <a class="nav-link fw-bold font-monospace" href="#">
                   ABOUT
                 </a>
-              </li>
+              </li> */}
               <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#footer-section">
+                <a
+                  class="nav-link fw-bold font-monospace"
+                  href="#footer-section"
+                >
                   CONTACT
                 </a>
               </li>
             </ul>
             <div class="d-flex">
-              <div className="wallet" onClick={() => connect()} style={{cursor:"pointer"}}>
-                { token ? token : "Connect Wallet Now"}
+              <div
+                className="wallet"
+                onClick={() => connect()}
+                style={{ cursor: "pointer" }}
+              >
+                {token ? token : "Connect Wallet Now"}
               </div>
-
             </div>
           </div>
         </div>

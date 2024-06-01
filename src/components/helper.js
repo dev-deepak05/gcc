@@ -1,4 +1,4 @@
-export const contactAddress = "0xcd0521f3DD01c0592549107aEEb8D49F5c306A5C"; // testnet
+export const contactAddress = "0x19bb47285ed10512d1ADB93bF7546D49AB61CE8e"; // testnet
 
 export const contactAbi = [
   {
@@ -70,6 +70,63 @@ export const contactAbi = [
       },
     ],
     name: "UserRegistered",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      { indexed: false, internalType: "address", name: "to", type: "address" },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "time",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "level",
+        type: "uint256",
+      },
+    ],
+    name: "sponserIncome",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "user",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "time",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "sponserIncomeClaimed",
     type: "event",
   },
   {
