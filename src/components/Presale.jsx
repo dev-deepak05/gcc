@@ -157,19 +157,19 @@ function Presale() {
                     </div>
                     <div className="presale-time-div">
                       <div className="time">
-                        <div className="presale-day time-box">8</div>
+                        <div className="presale-day time-box">00</div>
                         <div className="day">Days</div>
                       </div>
                       <div className="time">
-                        <div className="presale-hour time-box">5</div>
+                        <div className="presale-hour time-box">00</div>
                         <div className="hour">Hour</div>
                       </div>
                       <div className="time">
-                        <div className="presale-minute time-box">25</div>
+                        <div className="presale-minute time-box">00</div>
                         <div className="minute">Minute</div>
                       </div>
                       <div className="time">
-                        <div className="presale-second time-box">10</div>
+                        <div className="presale-second time-box">00</div>
                         <div className="second">Second</div>
                       </div>
                     </div>

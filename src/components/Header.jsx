@@ -98,20 +98,10 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#road-map">
+                <a class="nav-link fw-bold font-monospace" href="/#road-map">
                   ROADMAP
                 </a>
               </li>
-              {/* <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#">
-                  ICO 
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fw-bold font-monospace" href="#">
-                  ABOUT
-                </a>
-              </li> */}
               <li class="nav-item">
                 <a
                   class="nav-link fw-bold font-monospace"

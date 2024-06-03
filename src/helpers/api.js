@@ -1,10 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
 
 // Function to fetch data from the API
-export const fetchClaimDetails = async (url) => {
-
+export const fetchClaimDetails = async (url, page) => {
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(url, {
+      params: {
+        page: page,
+      },
+    });
     if (response.data.status === 200) {
       return response.data;
     } else {
@@ -14,5 +17,3 @@ export const fetchClaimDetails = async (url) => {
     console.error("Error fetching the data:", error);
   }
 };
-
-

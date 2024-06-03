@@ -398,9 +398,9 @@ body{
     border-radius: 1rem;
     color: black;
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 0.7rem;
 }
 
 .presale-line{
@@ -776,6 +776,13 @@ community-div2{
   color: #fff;
   font-size: 1.3rem;
   border-radius: 50%;
+}
+.footer-content .icons span{
+  cursor: pointer;
+}
+.footer-content .icons span:hover{
+  color: #A6D705;
+  border-color: #A6D705;
 }
 .footer-content h5{
   color: #878A8D;
