@@ -114,9 +114,9 @@ export default function Body() {
                 <div>{tokenValue ? 'Connected':'Connect Wallet Now'}</div>
               </div>
               <div className="back cat ms-3">
-              <div className="wallet-body">
+              {/* <div className="wallet-body">
                 <a href="https://dtbx.exchange/exchange/dtbx-inr" target="_blanck">Buy DTBX</a>
-              </div>
+              </div> */}
               </div>
               <div className="back social">
                 {/* <img

@@ -92,6 +92,9 @@ export default function Header() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+                <a href="https://dtbx.exchange/exchange/dtbx-inr" target="_blanck" class="nav-link fw-bold font-monospace">BUY DTBX</a>
+            </li>
               <li class="nav-item active">
                 <Link class="nav-link fw-bold font-monospace" to="/details">
                   VIEW DETAILS
