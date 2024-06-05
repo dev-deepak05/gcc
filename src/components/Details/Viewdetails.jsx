@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchClaimDetails } from "../../helpers/api";
 import { useSelector } from "react-redux";
-import { getUserData, getTokenDetail } from "../web3";
+import { getUserData, getTokenDetail,getClaimReward } from "../web3";
 import {
   getName,
   getDecimal,
@@ -25,7 +25,8 @@ function Viewdetails() {
   const [page, setPage] = useState(1);
   const url2 = `https:/dotblox.io/gccApi/sponserincome.php?user=${tokenValue[0]}`;
   const url1 = `https:/dotblox.io/gccApi/claimDetail.php?user=${tokenValue[0]}`;
-  const [totalPage,setTotalPage]=useState(1)
+  const [totalPage, setTotalPage] = useState(1);
+
   useEffect(() => {
     fetchClaimDetails(url1).then((res) => {
       if (res) {
@@ -38,19 +39,18 @@ function Viewdetails() {
     fetchClaimDetails(url2, page).then((res) => {
       if (res) {
         setResponseIncome(res.data);
-        
-        const totalRecord=res.totalRecords;
-        const tPage=Math.ceil(totalRecord/10);
-        setTotalPage(tPage)
 
-        // console.log(res,"::::: chck")
-      }else{
-        setResponseIncome(null)
+        const totalRecord = res.totalRecords;
+        const tPage = Math.ceil(totalRecord / 10);
+        setTotalPage(tPage);
+      } else {
+        setResponseIncome(null);
       }
     });
 
     getUserData(tokenValue[0]).then((res) => {
       if (res) {
+        // console.log(res)
         setClaim(res);
       }
     });
@@ -60,13 +60,18 @@ function Viewdetails() {
         setTokenAddress(res);
       }
     });
-  }, [tokenValue,page]);
+  }, [tokenValue, page]);
 
   const handlePagination = (event, value) => {
     setPage(value);
-    console.log(value)
+    console.log(value);
     fetchClaimDetails(url2, value);
   };
+
+
+  function claimDetail(token){
+    getClaimReward(token)
+  }
 
   // token Address
 
@@ -99,11 +104,14 @@ function Viewdetails() {
         <div className="row mt-5">
           {userDetail && (
             <div className="col-md-12 col-lg-6 mb-3">
-              <div class="card" style={{ backgroundColor: "#F1F3F5",height:'330px' }}>
+              <div
+                class="card"
+                style={{ backgroundColor: "#F1F3F5", height: "330px" }}
+              >
                 <div class="card-body">
                   <h5 class="card-title text-center">User Detail</h5>
                   <p class="card-text mt-3 fw-bold">
-                    Id :{" "}
+                    Id :
                     <span className="fw-normal">
                       {userDetail && userDetail?.id}
                     </span>
@@ -113,13 +121,13 @@ function Viewdetails() {
                     user : <span className="fw-normal">{userDetail?.user}</span>
                   </p>
                   <p class="card-text fw-bold">
-                    Amount :{" "}
+                    Amount :
                     <span className="fw-normal">
                       {Math.round(userDetail?.amount / 1e18)}
                     </span>
                   </p>
                   <p class="card-text fw-bold">
-                    Date :{" "}
+                    Date :
                     <span className="fw-normal">
                       {new Date(
                         userDetail?.block_timestamp * 1000
@@ -136,28 +144,39 @@ function Viewdetails() {
             <div className="col-md-12 col-lg-6 mb-3">
               <div
                 class="card"
-                style={{ height: "18.5rem", backgroundColor: "#F1F3F5",height:'330px' }}
+                style={{
+                  height: "18.5rem",
+                  backgroundColor: "#F1F3F5",
+                  height: "330px",
+                }}
               >
                 <div class="card-body pe-1">
                   <h5 class="card-title text-center">Claim Detail</h5>
                   <p class="card-text fw-bold mt-3">
-                    User Referal Address :{" "}
+                    User Referal Address :
                     <span className="fw-normal">
                       {claim?.userReferalAddress}
                     </span>
-                  </p>
+                  </p>      
                   <p class="card-text fw-bold">
-                    Income Recived :{" "}
+                    Total Reward Claimed :
                     <span className="fw-normal">
-                      {Number(claim?.incomeRecived)}
+                      {Number(claim?.totalRewardClaimed)/1e18}
                     </span>
                   </p>
                   <p class="card-text fw-bold">
-                    Total Reward Claimed :{" "}
+                    Total Airdrop Claim :
                     <span className="fw-normal">
-                      {Number(claim?.totalRewardClaimed)}
+                      {Number(claim?.totalAirdropClimed)/1e18}
                     </span>
                   </p>
+                  <p class="card-text fw-bold">
+                    Total Reward :
+                    <span className="fw-normal">
+                      {Number(claim?.incomeRecived)/1e18}
+                    </span>
+                  </p>
+                  <button className="btn btn-dark float-end me-4" onClick={()=>claimDetail(tokenValue[0])}>Claim Reward</button>
                 </div>
               </div>
             </div>
@@ -166,7 +185,10 @@ function Viewdetails() {
           )}
           {tokenAddress && (
             <div className="col-md-12 col-lg-6 mb-5">
-              <div className="card" style={{ backgroundColor: "#F1F3F5",height:'330px' }}>
+              <div
+                className="card"
+                style={{ backgroundColor: "#F1F3F5", height: "330px" }}
+              >
                 <div class="card-body pe-1">
                   <h5 class="card-title text-center">Token Details</h5>
                   <p class="card-text fw-bold mt-3">

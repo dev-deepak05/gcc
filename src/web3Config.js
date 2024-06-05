@@ -4,7 +4,7 @@ import Web3 from "web3";
 export async function connectToMetaMask() {
     if (typeof window.ethereum !== "undefined") {
       const web3 = new Web3(window.ethereum);
-      try {
+      try { 
         const chainId = await web3.eth.getChainId();
         if (chainId !== "0x61") {
           await window.ethereum.request({

@@ -1,6 +1,6 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Body from "./components/Body";
 import Move from "./components/Move";
 import Marquee from "react-fast-marquee";
@@ -12,6 +12,7 @@ import Roadmap from "./components/Roadmap";
 import Community from "./components/Community";
 import Questions from "./components/Questions";
 import Footer from "./components/Footer";
+import RewardDistribution from "./components/RewardDistribution";
 // comment
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <ConnectWallet />
       <Presale />
       <Piechart />
+      <RewardDistribution/>
       <Roadmap />
       <Community />
       <Questions />

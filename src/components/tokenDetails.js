@@ -43,3 +43,4 @@ export const getTotalSupply=async(address)=>{
         return false;
     }
 }
+
