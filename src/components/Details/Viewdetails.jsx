@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchClaimDetails } from "../../helpers/api";
 import { useSelector } from "react-redux";
-import { getUserData, getTokenDetail,getClaimReward } from "../web3";
+import { getUserData, getTokenDetail, getClaimReward } from "../web3";
 import {
   getName,
   getDecimal,
@@ -23,8 +23,8 @@ function Viewdetails() {
   const [tokenSupply, setTokenSupply] = useState(null);
   const { tokenValue } = useSelector((state) => state.counter);
   const [page, setPage] = useState(1);
-  const url2 = `https:/dotblox.io/gccApi/sponserincome.php?user=${tokenValue[0]}`;
-  const url1 = `https:/dotblox.io/gccApi/claimDetail.php?user=${tokenValue[0]}`;
+  const url1 = `https://dotblox.io/gccApi/claimDetail.php?user=${tokenValue[0]}`;
+  const url2 = `https://dotblox.io/gccApi/sponserincome.php?user=${tokenValue[0]}`;
   const [totalPage, setTotalPage] = useState(1);
 
   useEffect(() => {
@@ -50,7 +50,6 @@ function Viewdetails() {
 
     getUserData(tokenValue[0]).then((res) => {
       if (res) {
-        // console.log(res)
         setClaim(res);
       }
     });
@@ -68,9 +67,8 @@ function Viewdetails() {
     fetchClaimDetails(url2, value);
   };
 
-
-  function claimDetail(token){
-    getClaimReward(token)
+  function claimDetail(token) {
+    getClaimReward(token);
   }
 
   // token Address
@@ -106,7 +104,7 @@ function Viewdetails() {
             <div className="col-md-12 col-lg-6 mb-3">
               <div
                 class="card"
-                style={{ backgroundColor: "#F1F3F5", height: "330px" }}
+                style={{ backgroundColor: "#F1F3F5", minHeight: "330px" }}
               >
                 <div class="card-body">
                   <h5 class="card-title text-center">User Detail</h5>
@@ -145,7 +143,7 @@ function Viewdetails() {
               <div
                 class="card"
                 style={{
-                  height: "18.5rem",
+                  minHeight: "18.5rem",
                   backgroundColor: "#F1F3F5",
                   height: "330px",
                 }}
@@ -157,26 +155,32 @@ function Viewdetails() {
                     <span className="fw-normal">
                       {claim?.userReferalAddress}
                     </span>
-                  </p>      
+                  </p>
                   <p class="card-text fw-bold">
                     Total Reward Claimed :
                     <span className="fw-normal">
-                      {Number(claim?.totalRewardClaimed)/1e18}
+                      {Number(claim?.totalRewardClaimed) / 1e18}
                     </span>
                   </p>
                   <p class="card-text fw-bold">
                     Total Airdrop Claim :
                     <span className="fw-normal">
-                      {Number(claim?.totalAirdropClimed)/1e18}
+                      {Number(claim?.totalAirdropClimed) / 1e18}
                     </span>
                   </p>
                   <p class="card-text fw-bold">
                     Total Reward :
                     <span className="fw-normal">
-                      {Number(claim?.incomeRecived)/1e18}
+                      {Number(claim?.incomeRecived) / 1e18}
                     </span>
                   </p>
-                  <button className="btn btn-dark float-end me-4" onClick={()=>claimDetail(tokenValue[0])}>Claim Reward</button>
+                  <button
+                    className="btn btn-dark float-end me-4"
+                    onClick={() => claimDetail(tokenValue[0])}
+                    style={{ marginTop: "-1rem" }}
+                  >
+                    Claim Reward
+                  </button>
                 </div>
               </div>
             </div>
@@ -187,7 +191,7 @@ function Viewdetails() {
             <div className="col-md-12 col-lg-6 mb-5">
               <div
                 className="card"
-                style={{ backgroundColor: "#F1F3F5", height: "330px" }}
+                style={{ backgroundColor: "#F1F3F5", minHeight: "330px" }}
               >
                 <div class="card-body pe-1">
                   <h5 class="card-title text-center">Token Details</h5>

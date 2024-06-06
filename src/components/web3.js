@@ -29,14 +29,11 @@ export const getTokenDetail=async(address)=>{
 }
 
 export const getClaimReward=async(token)=>{
-
-    console.log(token)  
-    console.log(contractInstance)
     try{
         let res=await contractInstance.methods.claimSponseringIncome().send({
             from:token
         })
-        console.log(res)
+        return res
     }catch(e){
         console.log(e)
     }

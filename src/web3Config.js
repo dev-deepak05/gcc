@@ -29,11 +29,11 @@ export async function connectToMetaMask() {
         });
         return accounts;
       } catch (error) {
-        console.error("Error connecting to MetaMask:", error);
+        alert("Error connecting to MetaMask:", error);
         return false;
       }
     } else {
-      console.error("MetaMask is not installed");
+      alert("MetaMask is not installed");
       return false;
     }
   }
