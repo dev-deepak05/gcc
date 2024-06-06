@@ -16,73 +16,71 @@ function Presale() {
     contactAddress
   );
 
-  const [RspAddress, setRspAddress] = useState("");
-  const [adminReferal, setAdminReferal] = useState("");
+
   const [errorMsg, setErrorMsg] = useState("");
 
-  function responseAddress(e) {
-    // console.log(e.target.value,"reaseee")
-    setRspAddress(e.target.value);
-    try{
-    contractInstance.methods
-      .AddressToId(e.target.value)
-      .call()
-      .then((res) => {
-        setErrorMsg('')
-        console.log(res,"res from address ti id");
-      })
-      .catch((sendError) => {
-        console.error("Error sending transaction:", sendError);
-      });
-    }catch(error){
-      if(e.target.value==""){
-        setErrorMsg('')
-      }else{
-      setErrorMsg('Address Not Exists')
-      }
-      console.log(error)
-    }
-  }
+  // function responseAddress(e) {
+  //   // console.log(e.target.value,"reaseee")
+  //   setRspAddress(e.target.value);
+  //   try{
+  //   contractInstance.methods
+  //     .AddressToId(e.target.value)
+  //     .call()
+  //     .then((res) => {
+  //       setErrorMsg('')
+  //       console.log(res,"res from address ti id");
+  //     })
+  //     .catch((sendError) => {
+  //       console.error("Error sending transaction:", sendError);
+  //     });
+  //   }catch(error){
+  //     if(e.target.value==""){
+  //       setErrorMsg('')
+  //     }else{
+  //     setErrorMsg('Address Not Exists')
+  //     }
+  //     console.log(error)
+  //   }
+  // }
 
   // console.log(contractInstance.methods, "done");
 
 
-  const getdata = () => {
-    
-    if(tokenValue[0]){
-    contractInstance.methods
-      .adminreferal()
-      .call()
-      .then((tx) => {
-        setAdminReferal(tx)
-        tx = RspAddress != "" ? RspAddress : tx; 
-        contractInstance.methods
-          .registerAndClaim(tx)
-          .send({ from:tokenValue[0]})
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((sendError) => {
-            console.error("Error sending transaction:", sendError);
-          });
-      })
-      .catch((sendError) => {
-        console.error("Error sending transaction:", sendError);
-      });
-    }else{
-      const connect=async()=>{
-        try{
-          let res = await connectToMetaMask();
-          if (res) {
-            dispatch(setTokenValue(res));
-          }
-        }catch(error){
-          console.log('Wallet not connect',error)
-        }
-      }
-      connect();
-    }
-  };
+  // const getdata = () => {
+  //   if(tokenValue[0]){
+  //   contractInstance.methods
+  //     .adminreferal()
+  //     .call()
+  //     .then((tx) => {
+  //       setAdminReferal(tx)
+  //       tx = RspAddress != "" ? RspAddress : tx; 
+  //       contractInstance.methods
+  //         .registerAndClaim(tx)
+  //         .send({ from:tokenValue[0]})
+  //         .then((res) => {
+  //           console.log(res);
+  //         })
+  //         .catch((sendError) => {
+  //           console.error("Error sending transaction:", sendError);
+  //         });
+  //     })
+  //     .catch((sendError) => {
+  //       console.error("Error sending transaction:", sendError);
+  //     });
+  //   }else{
+  //     const connect=async()=>{
+  //       try{
+  //         let res = await connectToMetaMask();
+  //         if (res) {
+  //           dispatch(setTokenValue(res));
+  //         }
+  //       }catch(error){
+  //         console.log('Wallet not connect',error)
+  //       }
+  //     }
+  //     connect();
+  //   }
+  // };
 
   useEffect(() => {
     // getdata()
@@ -94,17 +92,17 @@ function Presale() {
     });
   }, [tokenValue[0]]);
 
-  useEffect(()=>{
-    contractInstance.methods
-    .adminreferal()
-    .call()
-    .then((tx) => {
-      setAdminReferal(tx)
-    })
-    .catch((sendError) => {
-      console.error("Error sending transaction:", sendError);
-    });
-  },[])
+  // useEffect(()=>{
+  //   contractInstance.methods
+  //   .adminreferal()
+  //   .call()
+  //   .then((tx) => {
+  //     setAdminReferal(tx)
+  //   })
+  //   .catch((sendError) => {
+  //     console.error("Error sending transaction:", sendError);
+  //   });
+  // },[])
 
 
   return (
@@ -112,7 +110,7 @@ function Presale() {
       <div className="presale-div-image">
         <div className="container-fluid presale-div-back">
           <div className="container">
-            <div className="from_top">
+            {/* <div className="from_top">
               <div className="row presale-only-div">
                 <div className="col-md-12 col-lg-8">
                   <div className="presale-text-div">
@@ -200,15 +198,15 @@ function Presale() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="container">
             <div className="col-md-12">
               <div class="sub-title-wrapper crypto-msg">
-                <h4 class="sub-title text-white">
+                {/* <h4 class="sub-title text-white">
                   Unlock Value Through Participation
-                </h4>
-                <h2 class="title text-white">
+                </h4> */}
+                <h2 class="title text-white pt-5">
                   Fueling a <span class="word">Thriving</span> Crypto Community
                   Ecosystem
                 </h2>

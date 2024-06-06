@@ -5,10 +5,17 @@ import { connectToMetaMask } from "../web3Config";
 import { useDispatch, useSelector } from "react-redux";
 import { setTokenValue } from "../redux/reducer";
 import { Link } from "react-router-dom";
+import { contactAbi, contactAddress } from "./helper";
 
 export default function Header() {
+  const [RspAddress, setRspAddress] = useState("");
   const dispatch = useDispatch();
   const { tokenValue } = useSelector((state) => state.counter);
+  const web3Instance = new Web3(window.ethereum);
+  const contractInstance = new web3Instance.eth.Contract(
+    contactAbi,
+    contactAddress
+  );
 
   //  Get Address Token
 
@@ -62,6 +69,36 @@ export default function Header() {
     token = tokenValue[0]?.slice(0, 5) + "...." + tokenValue[0]?.slice(-4);
   }
 
+  // Admin refral address
+
+  const getdata = () => {
+    if (tokenValue[0]) {
+      contractInstance.methods
+        .adminreferal()
+        .call()
+        .then((tx) => {
+          // setAdminReferal(tx);
+          tx = RspAddress != "" ? RspAddress : tx;
+          contractInstance.methods
+            .registerAndClaim(tx)
+            .send({ from: tokenValue[0] })
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((sendError) => {
+              console.error("Error sending transaction:", sendError);
+            });
+        })
+        .catch((sendError) => {
+          console.error("Error sending transaction:", sendError);
+        });
+    } else {
+      alert("Please Connect Wallet!");
+    }
+  };
+
+  // Get user id
+
   return (
     <>
       <nav
@@ -71,7 +108,7 @@ export default function Header() {
             : "navbar navbar-expand-lg"
         }
       >
-        <div class="container">
+        <div class="container-fluid">
           <Link to="/">
             <img
               src="images/gcc-logo.png"
@@ -92,9 +129,15 @@ export default function Header() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-                <a href="https://dtbx.exchange/exchange/dtbx-inr" target="_blanck" class="nav-link fw-bold font-monospace">BUY DTBX</a>
-            </li>
+              <li className="nav-item">
+                <a
+                  href="https://dtbx.exchange/exchange/dtbx-inr"
+                  target="_blanck"
+                  class="nav-link fw-bold font-monospace"
+                >
+                  BUY DTBX
+                </a>
+              </li>
               <li class="nav-item active">
                 <Link class="nav-link fw-bold font-monospace" to="/details">
                   VIEW DETAILS
@@ -121,6 +164,13 @@ export default function Header() {
                 style={{ cursor: "pointer" }}
               >
                 {token ? token : "Connect Wallet Now"}
+              </div>
+              <div
+                className="wallet ms-3"
+                onClick={() => getdata()}
+                style={{ cursor: "pointer" }}
+              >
+                Register and Claim
               </div>
             </div>
           </div>

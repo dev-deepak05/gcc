@@ -23,9 +23,9 @@ function Viewdetails() {
   const [tokenSupply, setTokenSupply] = useState(null);
   const { tokenValue } = useSelector((state) => state.counter);
   const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
   const url1 = `https://dotblox.io/gccApi/claimDetail.php?user=${tokenValue[0]}`;
   const url2 = `https://dotblox.io/gccApi/sponserincome.php?user=${tokenValue[0]}`;
-  const [totalPage, setTotalPage] = useState(1);
 
   useEffect(() => {
     fetchClaimDetails(url1).then((res) => {
@@ -49,12 +49,14 @@ function Viewdetails() {
     });
 
     getUserData(tokenValue[0]).then((res) => {
+      console.log(res);
       if (res) {
         setClaim(res);
       }
     });
 
     getTokenDetail(tokenValue[0]).then((res) => {
+      console.log(res,'dddddd')
       if (res) {
         setTokenAddress(res);
       }
@@ -215,7 +217,7 @@ function Viewdetails() {
                     Total Supply :
                     <span className="fw-normal">
                       {tokenSupply &&
-                        (Number(tokenSupply) / 1e54).toLocaleString()}
+                        (Number(tokenSupply) / 1e18).toLocaleString()}
                     </span>
                   </p>
                 </div>

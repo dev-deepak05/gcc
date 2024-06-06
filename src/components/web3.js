@@ -6,36 +6,33 @@ const contractInstance = new web3Instance.eth.Contract(
   contactAddress
 );
 
+export const getUserData = async (address) => {
+  try {
+    const res = contractInstance.methods.UserData(address).call();
+    return res;
+  } catch (e) {
+    console.log(e, "from getUserData");
+    return false;
+  }
+};
 
+export const getTokenDetail = async (address) => {
+  try {
+    const res = contractInstance.methods.GCC(address).call();
+    return res;
+  } catch (e) {
+    console.log(e, "form Token Detail");
+    return false;
+  }
+};
 
-export const getUserData=async(address)=>{
-    try{
-        const res=contractInstance.methods.UserData(address).call();
-        return res;
-    }catch(e){
-        console.log(e,"from getUserData");
-        return false;
-    }
-}
-
-export const getTokenDetail=async(address)=>{
-    try{
-        const res=contractInstance.methods._GDC(address).call();
-        return res
-    }catch(e){
-        console.log(e,'form Token Detail')
-        return false;        
-    }
-}
-
-export const getClaimReward=async(token)=>{
-    try{
-        let res=await contractInstance.methods.claimSponseringIncome().send({
-            from:token
-        })
-        return res
-    }catch(e){
-        console.log(e)
-    }
-    
-}
+export const getClaimReward = async (token) => {
+  try {
+    let res = await contractInstance.methods.claimSponseringIncome().send({
+      from: token,
+    });
+    return res;
+  } catch (e) {
+    console.log(e);
+  }
+};
