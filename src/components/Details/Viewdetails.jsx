@@ -56,7 +56,7 @@ function Viewdetails() {
     });
 
     getTokenDetail(tokenValue[0]).then((res) => {
-      console.log(res,'dddddd')
+      console.log(res, "dddddd");
       if (res) {
         setTokenAddress(res);
       }
@@ -258,7 +258,7 @@ function Viewdetails() {
                       <td>{Math.round(data.amount / 1e18)}</td>
                       <td>
                         <a
-                          href={`https://testnet.bscscan.com/tx/${data.transaction_id}`}
+                          href={`https://explorer.dotblox.io/tx/${data.transaction_id}`}
                           style={{ color: "black" }}
                           className="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-dark"
                           id="trnsId"

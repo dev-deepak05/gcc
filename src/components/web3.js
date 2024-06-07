@@ -36,3 +36,13 @@ export const getClaimReward = async (token) => {
     console.log(e);
   }
 };
+
+export const addressToId = async (walletAddrss) => {
+  try {
+    const tx = await contractInstance.methods.AddressToId(walletAddrss).call();
+    let id = Number(tx);
+    return id;
+  } catch (error) {
+      console.log(error)
+  }
+};

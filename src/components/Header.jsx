@@ -4,11 +4,13 @@ import Web3 from "web3";
 import { connectToMetaMask } from "../web3Config";
 import { useDispatch, useSelector } from "react-redux";
 import { setTokenValue } from "../redux/reducer";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { contactAbi, contactAddress } from "./helper";
+import toast from "react-hot-toast";
 
 export default function Header() {
   const [RspAddress, setRspAddress] = useState("");
+  const [refId, setRefId] = useState(0);
   const dispatch = useDispatch();
   const { tokenValue } = useSelector((state) => state.counter);
   const web3Instance = new Web3(window.ethereum);
@@ -17,6 +19,7 @@ export default function Header() {
     contactAddress
   );
 
+  const location = useLocation();
   //  Get Address Token
 
   const connect = async () => {
@@ -72,32 +75,61 @@ export default function Header() {
   // Admin refral address
 
   const getdata = () => {
-    if (tokenValue[0]) {
-      contractInstance.methods
-        .adminreferal()
-        .call()
-        .then((tx) => {
-          // setAdminReferal(tx);
-          tx = RspAddress != "" ? RspAddress : tx;
+    try {
+      if (tokenValue[0]) {
+        if (refId != 0) {
           contractInstance.methods
-            .registerAndClaim(tx)
-            .send({ from: tokenValue[0] })
-            .then((res) => {
-              console.log(res);
+            .idToAddress(refId)
+            .call()
+            .then((tx) => {
+              contractInstance.methods
+                .registerAndClaim(tx)
+                .send({ from: tokenValue[0] })
+                .then((res) => {
+                  console.log(res);
+                })
+                .catch((sendError) => {
+                  console.error("Error sending transaction:", sendError);
+                });
             })
             .catch((sendError) => {
               console.error("Error sending transaction:", sendError);
             });
-        })
-        .catch((sendError) => {
-          console.error("Error sending transaction:", sendError);
-        });
-    } else {
-      alert("Please Connect Wallet!");
+        } else {
+          contractInstance.methods
+            .adminreferal()
+            .call()
+            .then((tx) => {
+              contractInstance.methods
+                .registerAndClaim(tx)
+                .send({ from: tokenValue[0] })
+                .then((res) => {
+                  console.log(res);
+                })
+                .catch((sendError) => {
+                  console.error("Error sending transaction:", sendError);
+                });
+            })
+            .catch((sendError) => {
+              console.error("Error sending transaction:", sendError);
+            });
+        }
+      } else {
+        toast.error("Please Connect Wallet!");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  // Get user id
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.has("refid")) {
+      const refid = params.get("refid");
+      setRefId(refid);
+    } else {
+    }
+  }, [location.search]);
 
   return (
     <>

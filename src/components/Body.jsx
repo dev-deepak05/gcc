@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import Web3 from "web3";
 import { contactAbi, contactAddress } from "./helper";
 import toast from "react-hot-toast";
+import { useLocation, useParams } from "react-router-dom";
+import { addressToId } from "./web3";
 
 export default function Body() {
-  const [refId, setRefId] = useState("");
+  const [refId, setRefId] = useState(0);
   const [inputLink, setInputLink] = useState("");
   const { tokenValue } = useSelector((state) => state.counter);
   const web3Instance = new Web3(window.ethereum);
@@ -15,11 +17,10 @@ export default function Body() {
     contactAbi,
     contactAddress
   );
+  // const location = useLocation();
   useEffect(() => {
     if (tokenValue[0]) {
-      contractInstance.methods
-        .AddressToId(tokenValue[0])
-        .call()
+      addressToId(tokenValue[0])
         .then((tx) => {
           let id = Number(tx);
           setRefId(id);
@@ -29,12 +30,13 @@ export default function Body() {
           console.error("Error sending transaction:", sendError);
         });
     }
-  }, []);
+  }, [tokenValue]);
 
   function copyRefId() {
     navigator.clipboard.writeText(inputLink);
     toast.success("copied Successfully");
   }
+
   return (
     <>
       <div className="body-container">
@@ -143,7 +145,7 @@ export default function Body() {
                 </ul>
               </div>
               <div className="refaddress">
-                {
+                { refId!=0 &&
                   <div className="inputCopy d-flex">
                     <input
                       type="text"
