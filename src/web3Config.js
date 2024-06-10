@@ -5,8 +5,8 @@ export async function connectToMetaMask() {
     const web3 = new Web3(window.ethereum);
     try {
       const chainId = await web3.eth.getChainId();
-      console.log(chainId, "chainId");
-      if (chainId != "0x1EF3") {
+      // console.log(chainId, "chainId");
+      if (chainId !== "0x1EF3") {
         await window.ethereum.request({
           method: "wallet_addEthereumChain",
           params: [
@@ -27,9 +27,10 @@ export async function connectToMetaMask() {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
-      return accounts;
+
+      return accounts; // Return the connected account
     } catch (error) {
-      alert("Error connecting to MetaMask:", error);
+      console.error("Error connecting to MetaMask:", error);
       return false;
     }
   } else {

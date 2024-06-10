@@ -165,16 +165,7 @@ export default function Body() {
               </div>
               <div className="social-icon">
                 <div className="wallet-body">
-                  <div>{tokenValue ? "Connected" : "Connect Wallet Now"}</div>
-                </div>
-                <div className="back cat ms-3"></div>
-                <div className="back social">
-                  {/* <img
-                  src="images/gcc-image1.png"
-                  alt=""
-                  height={60}
-                  width={60}
-                /> */}
+                  <div>{tokenValue[0] ? "Connected" : "Connect Wallet Now"}</div>
                 </div>
               </div>
             </div>

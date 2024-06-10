@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import "../App.css";
 import Web3 from "web3";
-import { connectToMetaMask } from "../web3Config";
+import { connectToMetaMask, handleAccountsChanged } from "../web3Config";
 import { useDispatch, useSelector } from "react-redux";
 import { setTokenValue } from "../redux/reducer";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useFetcher, useLocation } from "react-router-dom";
 import { contactAbi, contactAddress } from "./helper";
 import toast from "react-hot-toast";
 
 export default function Header() {
-  const [RspAddress, setRspAddress] = useState("");
   const [refId, setRefId] = useState(0);
   const dispatch = useDispatch();
   const { tokenValue } = useSelector((state) => state.counter);
@@ -49,7 +48,7 @@ export default function Header() {
     };
   }, []);
 
-  //wallet token
+  //Get wallect connected user address
   useEffect(() => {
     const loadAccounts = async () => {
       if (window.ethereum) {
@@ -123,6 +122,14 @@ export default function Header() {
   };
 
   useEffect(() => {
+    window.ethereum.on("accountsChanged", function (accounts) {
+      dispatch(setTokenValue(accounts));
+    });
+  }, []);
+
+  // get url parameter value
+
+  useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.has("refid")) {
       const refid = params.get("refid");
@@ -130,6 +137,14 @@ export default function Header() {
     } else {
     }
   }, [location.search]);
+
+  const disconnect=()=>{
+    try {
+      dispatch(setTokenValue([]));
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -204,6 +219,15 @@ export default function Header() {
               >
                 Register and Claim
               </div>
+              {tokenValue[0]&&
+              <div
+                className="wallet ms-3"
+                onClick={() => disconnect()}
+                style={{ cursor: "pointer" }}
+              >
+               Disconnect
+              </div>
+          }
             </div>
           </div>
         </div>

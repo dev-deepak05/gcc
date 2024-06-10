@@ -19,69 +19,6 @@ function Presale() {
 
   const [errorMsg, setErrorMsg] = useState("");
 
-  // function responseAddress(e) {
-  //   // console.log(e.target.value,"reaseee")
-  //   setRspAddress(e.target.value);
-  //   try{
-  //   contractInstance.methods
-  //     .AddressToId(e.target.value)
-  //     .call()
-  //     .then((res) => {
-  //       setErrorMsg('')
-  //       console.log(res,"res from address ti id");
-  //     })
-  //     .catch((sendError) => {
-  //       console.error("Error sending transaction:", sendError);
-  //     });
-  //   }catch(error){
-  //     if(e.target.value==""){
-  //       setErrorMsg('')
-  //     }else{
-  //     setErrorMsg('Address Not Exists')
-  //     }
-  //     console.log(error)
-  //   }
-  // }
-
-  // console.log(contractInstance.methods, "done");
-
-
-  // const getdata = () => {
-  //   if(tokenValue[0]){
-  //   contractInstance.methods
-  //     .adminreferal()
-  //     .call()
-  //     .then((tx) => {
-  //       setAdminReferal(tx)
-  //       tx = RspAddress != "" ? RspAddress : tx; 
-  //       contractInstance.methods
-  //         .registerAndClaim(tx)
-  //         .send({ from:tokenValue[0]})
-  //         .then((res) => {
-  //           console.log(res);
-  //         })
-  //         .catch((sendError) => {
-  //           console.error("Error sending transaction:", sendError);
-  //         });
-  //     })
-  //     .catch((sendError) => {
-  //       console.error("Error sending transaction:", sendError);
-  //     });
-  //   }else{
-  //     const connect=async()=>{
-  //       try{
-  //         let res = await connectToMetaMask();
-  //         if (res) {
-  //           dispatch(setTokenValue(res));
-  //         }
-  //       }catch(error){
-  //         console.log('Wallet not connect',error)
-  //       }
-  //     }
-  //     connect();
-  //   }
-  // };
-
   useEffect(() => {
     // getdata()
     AOS.init({
@@ -92,120 +29,16 @@ function Presale() {
     });
   }, [tokenValue[0]]);
 
-  // useEffect(()=>{
-  //   contractInstance.methods
-  //   .adminreferal()
-  //   .call()
-  //   .then((tx) => {
-  //     setAdminReferal(tx)
-  //   })
-  //   .catch((sendError) => {
-  //     console.error("Error sending transaction:", sendError);
-  //   });
-  // },[])
-
 
   return (
     <>
       <div className="presale-div-image">
         <div className="container-fluid presale-div-back">
           <div className="container">
-            {/* <div className="from_top">
-              <div className="row presale-only-div">
-                <div className="col-md-12 col-lg-8">
-                  <div className="presale-text-div">
-                    <div className="only-text text-center">
-                      <div>
-                        WE'RE BUILDING A VIBRANT ECOSYSTEM AND YOU HAVE THE
-                        EXCLUSIVE OPPORTUNITY TO BE A PART OF IT FROM THE GROUND
-                        FLOOR.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text_wrapper">
-                    <div className="title">
-                      <div className="sub-title">
-                        <h6 class="text-white">Join the GCC crypto presale</h6>
-                      </div>
-                      <h3 class="title text-white mt-2">
-                        GCC <span class="word">Presale:</span> Your Chance to
-                        Shape the Future
-                      </h3>
-                    </div>
-                    <div className="desc mt-5">
-                      <p>
-                        Now’s your chance to be a part of something
-                        groundbreaking – join the GCC presale and secure your
-                        spot in this revolutionary ecosystem. Join effortlessly
-                        using your crypto wallet, credit or debit cards, Apple
-                        Pay, or Google Pay. Become a valued member of our
-                        community and embrace the simplicity of connection
-                        today.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-12 col-lg-4 presale-live">
-                  <div
-                    className="presale-div"
-                    style={{ backgroundColor: "#00111E" }}
-                  >
-                    <div className="presale-title">
-                      <h3 className="text-white">Pre-sale will Live In</h3>
-                    </div>
-                    <div className="presale-time-div">
-                      <div className="time">
-                        <div className="presale-day time-box">00</div>
-                        <div className="day">Days</div>
-                      </div>
-                      <div className="time">
-                        <div className="presale-hour time-box">00</div>
-                        <div className="hour">Hour</div>
-                      </div>
-                      <div className="time">
-                        <div className="presale-minute time-box">00</div>
-                        <div className="minute">Minute</div>
-                      </div>
-                      <div className="time">
-                        <div className="presale-second time-box">00</div>
-                        <div className="second">Second</div>
-                      </div>
-                    </div>
-                    <div className="presale-line mt-3 mb-4"></div>
-                    <div className="response-input">
-                      <input
-                        type="text"
-                        placeholder="Sponser Address"
-                        name="responser-address"
-                        className="form-control"
-                        style={{ width: "17rem", margin: "auto" }}
-                        onChange={responseAddress}
-                        value={RspAddress}
-                        required
-                      />
-                      <div className="text-white m-3" style={{ fontSize: "11px" }}>
-                         {errorMsg}
-                      </div>
-
-                    </div>
-                    <div className="presale-wallet pt-5">
-                      <span className="presale-wallet-btn" onClick={getdata} style={{cursor:'pointer'}}>
-                        {tokenValue
-                          ? "Register And Claim"
-                          : "Connect Wallet Now"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div className="container">
             <div className="col-md-12">
               <div class="sub-title-wrapper crypto-msg">
-                {/* <h4 class="sub-title text-white">
-                  Unlock Value Through Participation
-                </h4> */}
                 <h2 class="title text-white pt-5">
                   Fueling a <span class="word">Thriving</span> Crypto Community
                   Ecosystem

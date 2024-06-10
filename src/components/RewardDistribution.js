@@ -1,4 +1,3 @@
-// sponser reward distribution
 import PiechartStatus from "./PiechartStatus";
 import { PieChart } from "@mui/x-charts/PieChart";
 
@@ -17,7 +16,6 @@ function RewardDistribution() {
           <div className="col-md-12">
             <div className="chart-title text-center">
               <div class="chart-sub-title">
-                {/* <h6 class="sub-title">Tokenomics</h6> */}
               </div>
 
               <h2 class="title">
@@ -115,19 +113,6 @@ function RewardDistribution() {
                   ></div>
                 </div>
               </div>
-              {/* <div className="bounties mt-3">
-                <h6>Token Sale: 25%</h6>
-                <div className="progress">
-                  <div
-                    class="progress-bar bg-danger"
-                    role="progressbar"
-                    style={{ width: "25%" }}
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

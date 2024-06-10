@@ -21,7 +21,7 @@ function Community() {
               </div>
               <div className="community-wallet mb-4 mt-5">
                     <span className="community-wallet-btn">
-                    {tokenValue?'Connected':'Connect Wallet Now'}
+                    {tokenValue[0]?'Connected':'Connect Wallet Now'}
                     </span>
             </div>
             </div>

@@ -56,7 +56,7 @@ function Viewdetails() {
     });
 
     getTokenDetail(tokenValue[0]).then((res) => {
-      console.log(res, "dddddd");
+      console.log(res, "ddd");
       if (res) {
         setTokenAddress(res);
       }
@@ -211,7 +211,7 @@ function Viewdetails() {
                     Decimal :
                     <span className="fw-normal">{Number(tokenDecimal)}</span>
                   </p>
-
+                
                   {/* Changes devided by 1e18 */}
                   <p class="card-text fw-bold">
                     Total Supply :
