@@ -18,10 +18,11 @@ export default function Body() {
     contactAddress
   );
   // const location = useLocation();
+ 
   useEffect(() => {
     if (tokenValue[0]) {
       addressToId(tokenValue[0])
-        .then((tx) => {
+      .then((tx) => {
           let id = Number(tx);
           setRefId(id);
           setInputLink(`https://gccclub.org?refid=${refId}`);
@@ -31,7 +32,7 @@ export default function Body() {
         });
     }
   }, [tokenValue]);
-
+  // console.log(refId)
   function copyRefId() {
     navigator.clipboard.writeText(inputLink);
     toast.success("copied Successfully");

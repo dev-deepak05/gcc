@@ -47,20 +47,21 @@ function Viewdetails() {
         setResponseIncome(null);
       }
     });
+    if (tokenValue) {
+      getUserData(tokenValue[0]).then((res) => {
+        console.log(res);
+        if (res) {
+          setClaim(res);
+        }
+      });
 
-    getUserData(tokenValue[0]).then((res) => {
-      console.log(res);
-      if (res) {
-        setClaim(res);
-      }
-    });
-
-    getTokenDetail(tokenValue[0]).then((res) => {
-      console.log(res, "ddd");
-      if (res) {
-        setTokenAddress(res);
-      }
-    });
+      getTokenDetail(tokenValue[0]).then((res) => {
+        console.log(res, "ddd");
+        if (res) {
+          setTokenAddress(res);
+        }
+      });
+    }
   }, [tokenValue, page]);
 
   const handlePagination = (event, value) => {
@@ -76,26 +77,28 @@ function Viewdetails() {
   // token Address
 
   useEffect(() => {
-    getName(tokenAddress).then((res) => {
-      if (res) {
-        setTokenName(res);
-      }
-    });
-    getSymbol(tokenAddress).then((res) => {
-      if (res) {
-        setTokenSymbol(res);
-      }
-    });
-    getDecimal(tokenAddress).then((res) => {
-      if (res) {
-        setTokenDecimal(res);
-      }
-    });
-    getTotalSupply(tokenAddress).then((res) => {
-      if (res) {
-        setTokenSupply(res);
-      }
-    });
+    if (tokenAddress) {
+      getName(tokenAddress).then((res) => {
+        if (res) {
+          setTokenName(res);
+        }
+      });
+      getSymbol(tokenAddress).then((res) => {
+        if (res) {
+          setTokenSymbol(res);
+        }
+      });
+      getDecimal(tokenAddress).then((res) => {
+        if (res) {
+          setTokenDecimal(res);
+        }
+      });
+      getTotalSupply(tokenAddress).then((res) => {
+        if (res) {
+          setTokenSupply(res);
+        }
+      });
+    }
   }, [tokenAddress]);
 
   return (
@@ -211,7 +214,7 @@ function Viewdetails() {
                     Decimal :
                     <span className="fw-normal">{Number(tokenDecimal)}</span>
                   </p>
-                
+
                   {/* Changes devided by 1e18 */}
                   <p class="card-text fw-bold">
                     Total Supply :

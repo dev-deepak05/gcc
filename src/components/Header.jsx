@@ -34,6 +34,7 @@ export default function Header() {
 
   const [sticky, setSticky] = useState();
 
+  // handle scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -122,9 +123,11 @@ export default function Header() {
   };
 
   useEffect(() => {
+    if(window.ethereum){
     window.ethereum.on("accountsChanged", function (accounts) {
       dispatch(setTokenValue(accounts));
     });
+  }
   }, []);
 
   // get url parameter value
